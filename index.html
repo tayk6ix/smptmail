@@ -4,33 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMPT MAIL</title>
+    <title>Contact form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
     <div class="container">
-        <form onsubmit="sendEmail(); reset(); return false;">
-            <h3>GET IN TOUCH</h3>
-            <input type="text"  id="name">
-            <input type="email"  id="email">
-            <input type="text"  id="phone">
-            <textarea  id="message" cols="30" rows="10"></textarea>
-            <button type="submit">Send</button>
+        <h1>Contact Me</h1>
+        <p>Feel free to contact us and we will get back to you ass sson as we can.</p>
+        <form action="mail.php" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+            <label for="subject">Subject:</label>
+            <input type="text" name="subject" id="subject">
+            <label for="message">Message</label>
+            <textarea name="message" cols="30" rows="10"></textarea>
+            <input type="submit" value="Send">
         </form>
     </div>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script>
-        function sendEmail(){
-            Email.send({
-                SecureToken : "4ec56abc-7652-4e14-a4fd-b78e399f6d77",
-                To : 'jl435063@gmail.com',
-                From : document.getElementById('email').value,
-                Subject : "This is the subject",
-                Body : "And this is the body"
-            }).then(
-                message => alert(message)
-            );
-        }
-    </script>
 </body>
 </html>
